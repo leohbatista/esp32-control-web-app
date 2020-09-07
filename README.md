@@ -1,6 +1,6 @@
-# Esp32ControlWebApp
+# ESP32 Control - Web App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
+This project can control ESP32 using Firebase Realtime Database by reading collected data and setting the control values
 
 ## Development server
 
