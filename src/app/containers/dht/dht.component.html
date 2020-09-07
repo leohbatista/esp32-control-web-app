@@ -1,0 +1,58 @@
+<div class="container p-3 p-lg-4 d-flex align-items-center" style="min-height: 100%">
+  <div class="d-flex align-items-center justify-content-center" style="flex: 1" *ngIf="isLoading">
+    <mat-spinner diameter="80"></mat-spinner>
+  </div>
+
+  <div class="row" *ngIf="!isLoading">
+    <div class="col-12 col-lg-6 mb-3">
+      <mat-card>
+        <mat-card-content>
+          <mat-card-title>Temperatura</mat-card-title>
+          <mat-card-subtitle>Valor medido pelo sensor</mat-card-subtitle>
+        </mat-card-content>
+
+        <div class="text-center my-4 value-display">
+          {{ (temperature | number:'1.0-1') || '-' }} °C
+        </div>
+
+        <mat-card-footer align="end">
+          Última atualização: {{ (lastTemperatureUpdate | date:'dd/MM/yyyy HH:mm:ss') || '-' }}
+        </mat-card-footer>
+      </mat-card>
+    </div>
+
+    <div class="col-12 col-lg-6 mb-3">
+      <mat-card>
+        <mat-card-content>
+          <mat-card-title>Umidade</mat-card-title>
+          <mat-card-subtitle>Valor medido pelo sensor</mat-card-subtitle>
+        </mat-card-content>
+
+        <div class="text-center my-4 value-display">
+          {{ (humidity | number:'1.0-1') || '-' }} %
+        </div>
+
+        <mat-card-footer align="end">
+          Última atualização: {{ (lastHumidityUpdate | date:'dd/MM/yyyy HH:mm:ss') || '-' }}
+        </mat-card-footer>
+      </mat-card>
+    </div>
+
+    <div class="col-12 col-lg-6 offset-lg-3 mb-3">
+      <mat-card>
+        <mat-card-content>
+          <mat-card-title>Sensação Térmica</mat-card-title>
+          <mat-card-subtitle>Valor calculado pelo sensor baseado na temperatura e na umidade.</mat-card-subtitle>
+        </mat-card-content>
+
+        <div class="text-center my-4 value-display">
+          {{ (heatIndex | number:'1.0-1') || '-' }} °C
+        </div>
+
+        <mat-card-footer align="end">
+          Última atualização: {{ (lastHeatIndexUpdate | date:'dd/MM/yyyy HH:mm:ss') || '-' }}
+        </mat-card-footer>
+      </mat-card>
+    </div>
+  </div>
+</div>

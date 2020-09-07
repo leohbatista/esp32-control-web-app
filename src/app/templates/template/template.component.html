@@ -1,0 +1,37 @@
+<div class="esp32-container" [class.example-is-mobile]="layoutMatches">
+  <mat-toolbar color="primary" class="esp32-toolbar" style="min-width: 320px;">
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1 class="esp32-app-name ml-3" routerLink="/">ESP32</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="esp32-sidenav-container" style="min-width: 320px;">
+    <mat-sidenav #snav
+      [mode]="layoutMatches ? 'over' : 'side'"
+      [fixedInViewport]="layoutMatches"
+      [fixedTopGap]="layoutMatches ? 56 : 64"
+      class="esp32-sidenav"
+      [opened]="isOpened"
+    >
+      <mat-nav-list>
+        <div>
+          <div *ngFor="let nav of fillerNav">
+            <a mat-list-item  [routerLink]="nav.link" *ngIf="nav.linkType" class="esp32-nav-item">
+              <mat-icon>{{nav.icon}}</mat-icon> {{nav.text}}
+            </a>
+            <a mat-list-item [href]="nav.link" *ngIf="!nav.linkType" class="esp32-nav-item">
+              <mat-icon>{{nav.icon}}</mat-icon> {{nav.text}}
+            </a>
+          </div>
+        </div>
+
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="d-flex align-items-center justify-content-center" style="min-height: 100%;" *ngIf="loading">
+        <mat-spinner diameter="120"></mat-spinner>
+      </div>
+      <ng-content></ng-content>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

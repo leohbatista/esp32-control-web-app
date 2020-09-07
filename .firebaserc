@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "lhb-esp32": {
+      "hosting": {
+        "esp32-control-web-app": [
+          "lhb-esp32"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "lhb-esp32"
+  }
+}
