@@ -1,1 +1,23 @@
-<p>led works!</p>
+<div class="container p-3 p-lg-4 d-flex align-items-center justify-content-center" style="min-height: 100%">
+  <div class="d-flex align-items-center justify-content-center" style="flex: 1" *ngIf="isLoading">
+    <mat-spinner diameter="80"></mat-spinner>
+  </div>
+
+  <div class="d-flex align-items-center flex-column" *ngIf="!isLoading">
+    <div class="color-view mat-elevation-z3 mb-4" [style.background-color]="getCurrentColor()"></div>
+
+    <mat-slide-toggle color="primary" [checked]="isOn()" (change)="toggleLed($event)">Ligado</mat-slide-toggle>
+
+    <div class="p-4 d-flex flex-column flex-lg-row box my-4">
+      <mat-slide-toggle color="primary" name="r" class="m-2" [disabled]="!isOn()" [checked]="isOn()" (change)="toggleColor($event)">
+        Vermelho
+      </mat-slide-toggle>
+      <mat-slide-toggle color="primary" name="g" class="m-2" [disabled]="!isOn()" [checked]="isOn()" (change)="toggleColor($event)">
+        Verde
+      </mat-slide-toggle>
+      <mat-slide-toggle color="primary" name="b" class="m-2" [disabled]="!isOn()"[checked]="isOn()" (change)="toggleColor($event)">
+        Azul
+      </mat-slide-toggle>
+    </div>
+  </div>
+</div>

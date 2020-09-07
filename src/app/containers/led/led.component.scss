@@ -1,0 +1,12 @@
+@import '../../../theme.scss';
+
+.color-view {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+}
+
+.box {
+  border: mat-color($app-accent, 500) 1px solid;
+  background: mat-color($app-accent, 50);
+}

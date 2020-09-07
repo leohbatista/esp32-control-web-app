@@ -1,6 +1,6 @@
-import { DHTService } from './../../services/dht.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { DHTService } from './../../services/dht.service';
 
 @Component({
   selector: 'app-dht',
@@ -46,7 +46,6 @@ export class DHTComponent implements OnInit, OnDestroy {
       this.lastHeatIndexUpdate = new Date();
       this.updateLoadingStatus(2, false);
     });
-
   }
 
   ngOnDestroy(): void {
